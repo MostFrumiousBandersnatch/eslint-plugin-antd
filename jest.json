@@ -1,0 +1,17 @@
+
+{
+  "rootDir": ".",
+  "coverageDirectory": "<rootDir>/__coverage__/",
+  "setupFiles": [],
+  "roots": ["<rootDir>/src/"],
+  "moduleNameMapper": {
+  },
+  "moduleFileExtensions": ["js", "ts"],
+  "transform": {
+    "^.+\\.(ts)$": "babel-jest"
+  },
+  "transformIgnorePatterns": ["/node_modules/"],
+  "testRegex": ".*\\.test.ts$",
+  "moduleDirectories": ["node_modules"],
+  "globals": {}
+}

@@ -78,13 +78,12 @@ export default createRule<[], MessageIds>({
               formDeref.id.type === AST_NODE_TYPES.ObjectPattern &&
               (
                 formDeref.id.properties.filter(
-                  (prop) =>
-                    prop.type === AST_NODE_TYPES.Property && prop.computed
-                ) as TSESTree.PropertyComputedName[]
+                  (prop) => prop.type === AST_NODE_TYPES.Property
+                ) as TSESTree.Property[]
               ).find(
                 (prop) =>
                   prop.key.type === AST_NODE_TYPES.Identifier &&
-                  prop.key.name === "Item"
+                  prop.key.name === ANTD_FORM_ITEM_NAME
               );
 
             if (
