@@ -23,7 +23,7 @@ export default createRule<[], MessageIds>({
     schema: { $defs: {} },
   },
   defaultOptions: [],
-  create: (context) => {
+  create(context) {
     const scope: Record<string, string | null> = {
       formLocalName: null,
       itemLocalName: null,
