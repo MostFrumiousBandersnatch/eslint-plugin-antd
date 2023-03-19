@@ -1,4 +1,4 @@
-import * as singleChildRule from "./rules/item-has-single-child";
+import singleChildRule from "./rules/item-has-single-child";
 
 export default {
   rules: {
