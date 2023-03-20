@@ -34,6 +34,22 @@ export const App: React.FC = () => (
     `
 import React from 'react';
 import { Button, Checkbox, Form as MyForm, Input } from 'antd';
+
+export const App: React.FC = () => (
+  <Form
+    name="basic">
+    <MyForm.Item
+      label="Username"
+      name="username"
+      rules={[{ required: true, message: 'Please input your username!' }]}
+    >
+      <Input />
+    </MyForm.Item>
+</Form>);
+`,
+    `
+import React from 'react';
+import { Button, Checkbox, Form as MyForm, Input } from 'antd';
 const {Item: MyItem} = MyForm;
 
 export const App: React.FC = () => (
@@ -65,6 +81,25 @@ export const App: React.FC = () => (
     >
       <Input /><Input />
     </Form.Item>
+</Form>);
+`,
+      errors: [{ messageId: "multipleJSXChildrenDetected" }],
+    },
+    {
+      code: `
+import React from 'react';
+import { Button, Checkbox, Form as MyForm, Input } from 'antd';
+
+export const App: React.FC = () => (
+  <Form
+    name="basic">
+    <MyForm.Item
+      label="Username"
+      name="username"
+      rules={[{ required: true, message: 'Please input your username!' }]}
+    >
+      <Input /><Input />
+    </MyForm.Item>
 </Form>);
 `,
       errors: [{ messageId: "multipleJSXChildrenDetected" }],
