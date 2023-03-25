@@ -27,20 +27,46 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run test:ci > client-coverage-console-output.txt
-    - name: Jest Coverage Comment
-      uses: MishaKav/jest-coverage-comment@main
+
+    - name: Get Coverage for badge
+      run: |
+        # var SUMMARY = [
+        #   '',
+        #   '=============================== Coverage summary ===============================',
+        #   'Statements   : 32.5% ( 39/120 )',
+        #   'Branches     : 38.89% ( 21/54 )',
+        #   'Functions    : 21.74% ( 5/23 )',
+        #   'Lines        : 31.93% ( 38/119 )',
+        #   '================================================================================',
+        #   ''
+        # ];
+        # SUMMARY = SUMMARY.split('\n')[5]; // 'Lines        : 31.93% ( 38/119 )'
+        # SUMMARY = SUMMARY.split(':')[1].split('(')[0].trim(); // '31.93%'
+        SUMMARY="$(npm run test:ci -- --coverageReporters='text-summary' | tail -2 | head -1)"
+        TOKENS=($SUMMARY)
+        # process.env.COVERAGE = '31.93%';
+        echo "COVERAGE=$(echo ${TOKENS[2]})" >> $GITHUB_ENV
+
+        # var REF = 'refs/pull/27/merge.json';
+        REF=${{ github.ref }}
+        # console.log('github.ref: ' + REF);
+        echo "github.ref: $REF"
+        # var PATHS = REF.split('/');
+        IFS='/' read -ra PATHS <<< "$REF"
+        # var BRANCH_NAME = PATHS[1] + '_' + PATHS[2];
+        BRANCH_NAME="${PATHS[1]}_${PATHS[2]}"
+        # console.log(BRANCH_NAME); // 'pull_27'
+        echo $BRANCH_NAME
+        # process.env.BRANCH = 'pull_27';
+        echo "BRANCH=$(echo ${BRANCH_NAME})" >> $GITHUB_ENV
+
+    - name: Create the Badge
+      uses: schneegans/dynamic-badges-action@v1.0.0
       with:
-        coverage-summary-path: ./__coverage__/coverage-final.json
-        coverage-path: client-coverage-console-output.txt
-        title: Front-end Code Coverage
-        summary-title: Summary
-        coverage-title: Report
-        badge-title: Coverage
-        hide-comment: false
-        create-new-comment: false
-        hide-summary: false
-        # optimizations to reduce space on PR comment
-        remove-links-to-files: true
-        remove-links-to-lines: true
-        report-only-changed-files: true
+        auth: ${{ secrets.GIST_SECRET }}
+        gistID: b6bca3909460f0f822901a569a89c489
+        filename: eslint-plugin-antd__${{ env.BRANCH }}.json
+        label: Test Coverage
+        message: ${{ env.COVERAGE }}
+        color: green
+        namedLogo: jest
