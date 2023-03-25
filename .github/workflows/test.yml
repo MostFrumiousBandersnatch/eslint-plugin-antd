@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master" ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -33,7 +33,7 @@ jobs:
         # var SUMMARY = [
         #   '',
         #   '=============================== Coverage summary ===============================',
-        #   'Statements   : 32.5% ( 39/120 )',
+        #   'Stainnts   : 32.5% ( 39/120 )',
         #   'Branches     : 38.89% ( 21/54 )',
         #   'Functions    : 21.74% ( 5/23 )',
         #   'Lines        : 31.93% ( 38/119 )',
