@@ -2,8 +2,9 @@ Collection of eslint rules for ANT Design
 =========================================
 [![ESlint](https://img.shields.io/badge/eslint-3A33D1?style=flat&logo=eslint&logoColor=white)](https://eslint.org/)
 [![Licence](https://img.shields.io/github/license/Ileriayo/markdown-badges?style=flat)](./LICENSE)
+[![Npm package version](https://badgen.net/npm/v/eslint-plugin-antd)](https://npmjs.com/package/eslint-plugin-antd)
 [![Tests](https://github.com/MostFrumiousBandersnatch/eslint-plugin-antd/actions/workflows/test.yml/badge.svg)](https://github.com/MostFrumiousBandersnatch/eslint-plugin-antd/actions/workflows/test.yml)
-[![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MostFrumiousBandersnatch/b6bca3909460f0f822901a569a89c489/raw/eslint-plugin-antd__heads_master.json)]
+![Coverage Badge](https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/MostFrumiousBandersnatch/b6bca3909460f0f822901a569a89c489/raw/eslint-plugin-antd__heads_master.json)
 
 
 form-item-has-single-child
