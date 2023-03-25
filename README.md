@@ -12,7 +12,7 @@ form-item-has-single-child
 
 Ensuring that `Form.Item` elements contain exactly one child
 
-Form items are essentialy the wrappers for input controls, to connect them to the form's context, using the `cloneElement` under the hood. To make it happen, input control must be the only (and direct) child of form item, in [all other cases](https://stackblitz.com/edit/react-56ppz3) form item just does not work, printing some warnings in run time. You may occsionally add an extra child element, for the UI purposes, and break your form.
+Form items are essentialy the wrappers for input controls, to connect them to the form's context, using the `cloneElement` under the hood. To make it happen, input control must be the only (and direct) child of form item, in [all other cases](https://react-56ppz3.stackblitz.io) form item just does not work, printing some warnings in run time. You may occsionally add an extra child element, for the UI purposes, and break your form.
 
 Examples of **incorrect** code for this rule:
 ```JavaScript
