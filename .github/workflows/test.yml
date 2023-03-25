@@ -63,7 +63,7 @@ jobs:
     - name: Create the Badge
       uses: schneegans/dynamic-badges-action@v1.0.0
       with:
-        auth: ${{ secrets.GIST_SECRET }}
+        auth: ${{ secrets.COVERAGE_BADGE_GIST_SECRET }}
         gistID: b6bca3909460f0f822901a569a89c489
         filename: eslint-plugin-antd__${{ env.BRANCH }}.json
         label: Test Coverage
