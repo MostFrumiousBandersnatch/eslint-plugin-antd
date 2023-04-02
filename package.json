@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-antd",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "ANTD plugin for ESLint",
   "keywords": [
     "eslint",

@@ -13,7 +13,7 @@ export default createRule<[], MessageIds>({
     hasSuggestions: false,
     docs: {
       description: "Ensuring that form items have exactly one child node",
-      recommended: "strict",
+      recommended: "error",
     },
     fixable: "code",
     messages: {
